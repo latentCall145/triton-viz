@@ -1,0 +1,12 @@
+# v2 execution order
+- 01 ir api spec → 02 tracer → 03 ir builder/backends (flag-ready foundation).
+- 18 tracer v2 client follows 02; enables versioned payloads without altering v1 tracer.
+- 04 frontend shell starts after 01; can run in parallel with 02/03 but must finish before 05/07 wiring.
+- 06 timeline controls and 16 n-d viewer start after 03 and can run in parallel.
+- 05 graph view after 04+03+06; relies on deps/timeline.
+- 07 op view container after 04+05+06+03.
+- 11 load, 12 store, 13 dot, 14 unary/binary, 15 reduce after 07; they parallelize once 06/16 (and 17 for symbolic paths) are in.
+- 17 symbolic tracer after 01; parallel with 06/16; needed before 14/15 symbolic paths.
+- 08 ux polish after 04–07 stabilized.
+- 09 testing/ci after core features (01–08) to lock coverage.
+- 10 docs/rollout last, once behavior stable.
