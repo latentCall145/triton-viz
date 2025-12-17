@@ -1,7 +1,7 @@
 # v2 execution order
-- 01 ir api spec → 02 tracer → 03 ir builder/backends (flag-ready foundation).
-- 18 tracer v2 client follows 02; enables versioned payloads without altering v1 tracer.
-- 04 frontend shell starts after 01; can run in parallel with 02/03 but must finish before 05/07 wiring.
+- 01 ir api spec → 18 tracer v2 client (must reach parity with legacy tracer) → 03 ir builder/backends (flag-ready foundation) → 19 tracer node grouping → 21 rematerialization.
+- 04 frontend shell starts after 01; can run in parallel with 03/18/19/21 but must finish before 05/07 wiring.
+- 20 gpu tracer starts after 18 (and alongside/after 03 for payload ingestion); ensure fallback to cpu tracer remains.
 - 06 timeline controls and 16 n-d viewer start after 03 and can run in parallel.
 - 05 graph view after 04+03+06; relies on deps/timeline.
 - 07 op view container after 04+05+06+03.

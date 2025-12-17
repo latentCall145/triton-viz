@@ -1,0 +1,76 @@
+graph TD
+  i01[01 IR API spec (done)]
+  i18[18 TracerV2 client]
+  i03[03 IR builder/backends]
+  i19[19 Node grouping]
+  i21[21 Rematerialization]
+  i20[20 GPU tracer]
+  i04[04 Frontend shell]
+  i06[06 Timeline controls]
+  i16[16 N-D viewer]
+  i05[05 Graph view]
+  i07[07 Op view container]
+  i11[11 Load viz]
+  i12[12 Store viz]
+  i13[13 Dot viz]
+  i14[14 Unary/Binary viz]
+  i15[15 Reduce viz]
+  i17[17 Symbolic tracer]
+  i08[08 UX polish]
+  i09[09 Testing/CI]
+  i10[10 Docs/rollout]
+
+  i01 --> i18 --> i03 --> i19 --> i21
+  i18 --> i20
+  i03 --> i20
+
+  i01 --> i04
+  i03 --> i06
+  i03 --> i16
+
+  i06 --> i05
+  i04 --> i05
+
+  i04 --> i07
+  i05 --> i07
+  i06 --> i07
+  i03 --> i07
+
+  i07 --> i11
+  i07 --> i12
+  i07 --> i13
+  i07 --> i14
+  i07 --> i15
+
+  i06 --> i11
+  i06 --> i12
+  i06 --> i13
+  i06 --> i14
+  i06 --> i15
+
+  i16 --> i11
+  i16 --> i12
+  i16 --> i13
+  i16 --> i14
+  i16 --> i15
+
+  i17 --> i14
+  i17 --> i15
+
+  i04 --> i08
+  i05 --> i08
+  i06 --> i08
+  i07 --> i08
+
+  i01 --> i09
+  i03 --> i09
+  i04 --> i09
+  i05 --> i09
+  i06 --> i09
+  i07 --> i09
+  i08 --> i09
+
+  i09 --> i10
+
+  classDef done fill:#c4f4c4,stroke:#2b7b2b,color:#000;
+  class i01 done;

@@ -6,7 +6,7 @@ New IR, API, and frontend need coverage to avoid regressions. Add targeted tests
 
 # Tasks
 - Add unit tests for IR builder serialization (shapes, loop/pid fields, deps).
-- Add tracer tests for program_id/loop/timeline emission (Issue 02).
+- Add tracer tests for program_id/loop/timeline emission (Issue 18).
 - Add frontend smoke test (Playwright or minimal puppeteer) to assert tab switching, run→graph flow, slider existence.
 - Wire tests into existing `pytest`/CI config; add npm/JS test step if needed.
 - Provide fixture data (sample IR JSON) for FE tests.

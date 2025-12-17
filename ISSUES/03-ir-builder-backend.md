@@ -17,7 +17,7 @@ Once tracer emits enriched records, we need to aggregate them per launch/grid an
 - Logging includes launch_id/grid keys for debugging.
 
 # Dependencies / Notes
-- Uses tracer outputs (Issue 02).
+- Uses TracerV2 outputs (Issue 18).
 
 ## Implementation Plan
 - Files: visualizer/v2/ir_builder.py (new), visualizer/v2/store.py, server routes/app for /api/data, /api/op/:uuid, /api/timeline, logging; tests tests/visualizer/test_ir_builder_v2.py, fixtures tests/fixtures/ir_v2_sample.json.

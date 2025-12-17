@@ -1,3 +1,5 @@
+# STATUS: COMPLETED
+
 # Title
 Define V2 IR schema and API contracts
 
@@ -21,7 +23,7 @@ Spec path: design/v2-plan.md
 
 # Dependencies / Notes
 - Wireframe in `design/wireframe.png`.
-- Must align with tracer changes (see Issue 02) and FE needs (Issues 04–08).
+- Must align with tracer changes (see Issue 18) and FE needs (Issues 04–08).
 
 ## Implementation Plan
 - Files: design/v2-plan.md (new); optionally update this issue footer with spec path.
