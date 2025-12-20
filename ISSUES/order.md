@@ -8,5 +8,6 @@
 - 11 load, 12 store, 13 dot, 14 unary/binary, 15 reduce after 07; they parallelize once 06/16 (and 17 for symbolic paths) are in.
 - 17 symbolic tracer after 01; parallel with 06/16; needed before 14/15 symbolic paths.
 - 08 ux polish after 04–07 stabilized.
+- 22 fastapi migration can start anytime; finish before 09 to lock server behavior.
 - 09 testing/ci after core features (01–08) to lock coverage.
 - 10 docs/rollout last, once behavior stable.
