@@ -47,7 +47,6 @@ def kernel(A, B, C):
 - `line` (int) and `src_span` (object): `{ "file": str, "start": {"line": int, "col": int}, "end": {"line": int, "col": int} }`.
 - `inputs` (object<string,int>): mapping arg name → launch.tensors index used as input.
 - `outputs` (object<string,int>): mapping arg name → launch.tensors index produced by this site.
-- `memory` (string): label from launch.memory_spaces.
 - `node_path` (array<string>, optional): nested logical grouping labels applied via tracer context manager; ordered outer→inner.
 - `tensors` (object):
    - `inputs` (object<string,int>): indexes into launch.tensors keyed by arg name.
@@ -144,7 +143,6 @@ def kernel(A, B, C):
           "src_span": {"file": "kernel.py", "start": {"line": 42, "col": 5}, "end": {"line": 42, "col": 18}},
           "inputs": {"A": 0},
           "outputs": {"A_val": 1},
-          "memory": "hbm",
           "node_path": ["compute", "load_inputs"],
           "tensors": {"inputs": {"A": 0}, "outputs": {"A_val": 1}}
         }
