@@ -1,0 +1,275 @@
+:root {
+    color-scheme: dark;
+    --bg: #0f1118;
+    --bg-glow: #151a2b;
+    --panel: #161a24;
+    --panel-alt: #1c2230;
+    --pane-border: #2a3348;
+    --text: #e7e9f0;
+    --muted: #9aa3b2;
+    --accent: #6ae0ff;
+    --accent-strong: #49b6ff;
+    --syntax-keyword: #6ae0ff;
+    --syntax-string: #8fd98f;
+    --syntax-number: #ffb86b;
+    --syntax-comment: #5f6c86;
+    --syntax-function: #7fb3ff;
+    --syntax-builtin: #7be7c4;
+    --syntax-operator: #9bb1c8;
+    --syntax-type: #9fb2ff;
+    --syntax-constant: #ffc97a;
+    --gutter: #2d3a52;
+    --gutter-hover: #3a4a6a;
+    --run-green: #3ddc84;
+    --tab-height: 48px;
+    --line-number-width: 3.25rem;
+    --editor-bg: #0f1320;
+    --editor-active: rgba(106, 224, 255, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: radial-gradient(circle at top, var(--bg-glow), var(--bg));
+    color: var(--text);
+    font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tab-bar {
+    display: flex;
+    align-items: center;
+    height: var(--tab-height);
+    padding: 0 18px;
+    border-bottom: 1px solid var(--pane-border);
+    background: linear-gradient(135deg, var(--panel), var(--panel-alt));
+    gap: 10px;
+}
+
+.tab-button {
+    position: relative;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    color: var(--text);
+}
+
+.tab-button::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 6px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0;
+    transform: scaleX(0.6);
+}
+
+.tab-button.active::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.tab-spacer {
+    flex: 1;
+}
+
+.run-button {
+    border: 0;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.run-button::before {
+    content: "";
+    border-style: solid;
+    border-width: 9px 0 9px 16px;
+    border-color: transparent transparent transparent var(--run-green);
+    transform: translateX(2px);
+    transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.run-button:hover::before {
+    border-left-color: #6ef0a2;
+}
+
+.run-button:active::before {
+    transform: translateX(3px) scale(0.96);
+}
+
+.split {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+.pane {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--panel);
+}
+
+.left-pane {
+    border-right: 1px solid var(--pane-border);
+}
+
+.right-pane {
+    background: radial-gradient(circle at 30% 0%, #1f2636, var(--panel));
+}
+
+.gutter {
+    width: 6px;
+    cursor: col-resize;
+    background: var(--gutter);
+}
+
+.gutter.dragging,
+.gutter:hover {
+    background: var(--gutter-hover);
+}
+
+.editor-host {
+    flex: 1;
+    min-height: 0;
+}
+
+.pane-content {
+    flex: 1;
+    display: none;
+    padding: 24px;
+    overflow: auto;
+}
+
+.pane-content.active {
+    display: block;
+}
+
+.pane-placeholder {
+    max-width: 520px;
+    border: 1px dashed rgba(106, 224, 255, 0.3);
+    border-radius: 12px;
+    padding: 22px 24px;
+    background: rgba(15, 19, 32, 0.6);
+}
+
+.pane-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.pane-note {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.pane-selection {
+    font-family: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+.cm-editor {
+    height: 100%;
+    background: var(--editor-bg);
+    font-family: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.cm-editor .tok-comment {
+    color: var(--syntax-comment);
+    font-style: italic;
+}
+
+.cm-editor .tok-keyword {
+    color: var(--syntax-keyword);
+}
+
+.cm-editor .tok-operator,
+.cm-editor .tok-punctuation {
+    color: var(--syntax-operator);
+}
+
+.cm-editor .tok-string,
+.cm-editor .tok-string2 {
+    color: var(--syntax-string);
+}
+
+.cm-editor .tok-number {
+    color: var(--syntax-number);
+}
+
+.cm-editor .tok-atom,
+.cm-editor .tok-bool,
+.cm-editor .tok-literal {
+    color: var(--syntax-constant);
+}
+
+.cm-editor .tok-variableName.tok-definition,
+.cm-editor .tok-propertyName.tok-definition {
+    color: var(--syntax-function);
+    font-weight: 600;
+}
+
+.cm-editor .tok-typeName,
+.cm-editor .tok-className {
+    color: var(--syntax-type);
+}
+
+.cm-editor .tok-propertyName {
+    color: var(--syntax-builtin);
+}
+
+.cm-editor .tok-meta {
+    color: var(--accent);
+}
+
+.cm-scroller {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+@media (max-width: 900px) {
+    .tab-bar {
+        padding: 0 12px;
+    }
+
+    .pane-content {
+        padding: 18px;
+    }
+
+    .tab-button {
+        font-size: 0.85rem;
+        padding: 10px 10px;
+    }
+}

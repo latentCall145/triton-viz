@@ -20,6 +20,7 @@ Welcome to Triton-Viz, a visualization and profiling toolkit designed for deep l
       <ul>
         <li><a href="#Prerequisites">Prerequisites</a></li>
         <li><a href="#Installation-of-Triton_Viz">Installation of Triton_Viz</a></li>
+        <li><a href="#Frontend-Setup">Frontend setup</a></li>
       </ul>
     <li>
       <a href="#Working-with-Examples">Working with examples</a>
@@ -46,6 +47,7 @@ The best part about this tool is that while it does focus on visualizing GPU ope
 
 - Python installed (preferably the latest available version).
 - [Triton](https://github.com/openai/triton/blob/main/README.md) installed. Follow the installation instructions in the linked repository.
+- Node.js (LTS) and npm for building the frontend bundle.
 
 Upon successfully installing Triton, install Torch using the following command:
 
@@ -70,6 +72,16 @@ pip install -e .
 ```
 
 You're all set!
+
+### Frontend Setup
+
+Install frontend dependencies and build the CodeMirror bundle:
+
+```sh
+npm install
+npm run build:codemirror
+npm run build:shell
+```
 
 ## Working with Examples
 

@@ -3,45 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kernel Launch Configuration Visualization</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #1e1e28;
-            color: #c8c8c8;
-            font-family: Arial, sans-serif;
-        }
-        canvas {
-            display: block;
-            margin: 0 auto;
-        }
-        #visualization-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1000;
-        }
-        #operation-buttons {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-        .operation-button {
-            padding: 10px 20px;
-            margin-right: 10px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Triton Viz Shell</title>
+    <link rel="stylesheet" href="/static/vendor/codemirror/codemirror.css">
+    <link rel="stylesheet" href="/static/shell/layout.css">
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <div id="visualization-container"></div>
-
-    <script type="module" src="/static/visualization.js"></script>
+    <div id="app" class="app">
+        <header class="tab-bar" id="tab-bar"></header>
+        <div class="split" id="split-root">
+            <section class="pane left-pane" id="left-pane">
+                <div class="editor-host" id="editor-host"></div>
+            </section>
+            <div class="gutter" id="gutter" aria-label="Resize panels"></div>
+            <section class="pane right-pane" id="right-pane">
+                <div class="pane-content" id="graph-pane"></div>
+                <div class="pane-content" id="op-pane"></div>
+            </section>
+        </div>
+    </div>
+    <script type="module" src="/static/shell/main.js"></script>
 </body>
 </html>
