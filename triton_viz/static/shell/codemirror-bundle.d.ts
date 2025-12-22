@@ -1,0 +1,23 @@
+declare module '../vendor/codemirror/codemirror.bundle.js' {
+    export const EditorSelection: any;
+    export const EditorState: any;
+    export const EditorView: any;
+    export const defaultKeymap: any;
+    export const drawSelection: any;
+    export const classHighlighter: any;
+    export const LanguageSupport: any;
+    export const LRLanguage: any;
+    export const delimitedIndent: any;
+    export const indentNodeProp: any;
+    export const history: any;
+    export const historyKeymap: any;
+    export const highlightActiveLine: any;
+    export const highlightActiveLineGutter: any;
+    export const indentOnInput: any;
+    export const indentUnit: any;
+    export const indentWithTab: any;
+    export const keymap: any;
+    export const lineNumbers: any;
+    export const pythonParser: any;
+    export const syntaxHighlighting: any;
+}
