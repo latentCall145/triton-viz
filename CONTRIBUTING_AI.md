@@ -10,7 +10,7 @@
 - fail loudly and simply: clear exceptions; no retries/backoff unless required.
 - tests follow features: add the smallest test proving behavior; avoid mega suites.
 - re-read and shrink: delete lines until it would break; keep what's essential.
-- comments are rare: inline and lowercase when intent isn't obvious.
+- comments are rare: inline and lowercase when intent isn't obvious. However, if comments already exist, don't lowercase them unless asked.
 - optimize only when measured: prioritize correctness and clarity; optimize after evidence.
 - no dead code: remove unused helpers, flags, and commented blocks.
 - deterministic outputs: avoid randomness/time unless required; seed if unavoidable.
